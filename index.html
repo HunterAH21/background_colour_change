@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background Color</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #container {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            height: 300px;
+            width: 300px;
+        }
+        #background-text {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            height: 150px;
+            width: 180px;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <div ><button id="background-text">Background Color: Red</button></div>
+</div>
+
+<script>
+    const colors = ["Red", "Green", "Blue", "Yellow", "Purple"];
+    let currentColorIndex = 0;
+
+    const container = document.getElementById('container');
+    const backgroundText = document.getElementById('background-text');
+    const colorImage = document.getElementById('background-text');
+
+    colorImage.addEventListener('click', () => {
+        currentColorIndex = (currentColorIndex + 1) % colors.length;
+        const newColor = colors[currentColorIndex];
+        container.style.backgroundColor = newColor.toLowerCase();
+        backgroundText.textContent = "Background Color: "+ newColor;
+    });
+</script>
+
+</body>
+</html>
